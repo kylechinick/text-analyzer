@@ -28,18 +28,66 @@ function numberOfOccurrencesInText(word, text) {
   return wordCount;
 }
 
+let theString = 'these loopdaloop are still loopdaloop words loopdaloop';
+
+function noPottyMouth(text) {
+  if (text.trim().length === 0) {
+    return 0;
+  }
+
+  const wordArray = text.split(' ');
+  
+    let wordCount = 0;
+  
+  
+  wordArray.forEach(function (element) {
+    if (element === 'loopdaloop') {
+      element.replace('loopdaloop', 'awooga');
+      console.log(element);
+      console.log(theString);
+    }
+  });
+}
+
+noPottyMouth(theString);
+
+// let wordArray = '';
+
+// let theString = 'these loopdaloop are still loopdaloop words loopdaloop';
+
 // function noPottyMouth(text) {
-//   const wordArray = text.split(' ');
-//   wordArray.forEach(function (element) {
-//     if (element === 'loopdaloop') {
-//       wordArray.replace(element, 'awooga');
+//   // let wordArray = text.split(' ');
+//   theString.forEach(function (element) {
+//     if (element.includes('loopdaloop')) {
+//       theString.replace('loopdaloop', 'awooga');
+//       // console.log('I FOUND A BAD WORD');
+//       // console.log(theString.replace('loopdaloop', 'awooga'));
 //     }
-//     // if this array-element equals this bad-word
-//     // then replace with "awooga"
+//   });
+//   return theString;
+// }
+
+// function noPottyMouthAlt(text) {
+//   let wordArray = text.split(' ');
+//   wordArray.forEach(function (element) {
+//     if (element.includes('loopdaloop') || element.includes('zoinks')) {
+//       element.replace('loopdaloop', 'awooga');
+//       console.log(wordArray);
+//     }
+//     return wordArray;
 //   });
 // }
 
-// exampleString = 'test words and stuff';
-// console.log(exampleString);
-// exampleString.replace('loopdaloop', 'awooga');
-// console.log(exampleString);
+// UI Logic
+
+$(document).ready(function () {
+  $('form#word-counter').submit(function (event) {
+    event.preventDefault();
+    const passage = $('#text-passage').val();
+    const word = $('#word').val();
+    const wordCount = wordCounter(passage);
+    const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
+    $('#total-count').html(wordCount);
+    $('#selected-count').html(occurrencesOfWord);
+  });
+});
