@@ -28,55 +28,20 @@ function numberOfOccurrencesInText(word, text) {
   return wordCount;
 }
 
-let theString = 'these loopdaloop are still loopdaloop words loopdaloop';
-
 function noPottyMouth(text) {
-  if (text.trim().length === 0) {
-    return 0;
-  }
-
-  const wordArray = text.split(' ');
-  
-    let wordCount = 0;
-  
-  
-  wordArray.forEach(function (element) {
-    if (element === 'loopdaloop') {
-      element.replace('loopdaloop', 'awooga');
-      console.log(element);
-      console.log(theString);
+  let wordArray = text.split(' ');
+  wordArray.forEach(function (element, index) {
+    if (
+      element.includes('loopdaloop') ||
+      element.includes('zoinks') ||
+      element.includes('muppeteer') ||
+      element.includes('biffaroni')
+    ) {
+      wordArray[index] = 'awooga';
     }
   });
+  return wordArray;
 }
-
-noPottyMouth(theString);
-
-// let wordArray = '';
-
-// let theString = 'these loopdaloop are still loopdaloop words loopdaloop';
-
-// function noPottyMouth(text) {
-//   // let wordArray = text.split(' ');
-//   theString.forEach(function (element) {
-//     if (element.includes('loopdaloop')) {
-//       theString.replace('loopdaloop', 'awooga');
-//       // console.log('I FOUND A BAD WORD');
-//       // console.log(theString.replace('loopdaloop', 'awooga'));
-//     }
-//   });
-//   return theString;
-// }
-
-// function noPottyMouthAlt(text) {
-//   let wordArray = text.split(' ');
-//   wordArray.forEach(function (element) {
-//     if (element.includes('loopdaloop') || element.includes('zoinks')) {
-//       element.replace('loopdaloop', 'awooga');
-//       console.log(wordArray);
-//     }
-//     return wordArray;
-//   });
-// }
 
 // UI Logic
 
