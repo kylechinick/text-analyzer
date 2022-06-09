@@ -59,7 +59,8 @@ function boldPassage(word, text) {
   let textArray = text.split(' ');
   textArray.forEach(function (element, index) {
     if (element.toLowerCase().includes(word.toLowerCase())) {
-      htmlString = htmlString.concat('<b>' + element + '</b>');
+      // htmlString = htmlString.concat('<b>' + element + '</b>');
+      htmlString = htmlString + element.replace(word, '<b>' + word + '</b>');
     } else {
       htmlString = htmlString.concat(element);
     }
@@ -69,12 +70,6 @@ function boldPassage(word, text) {
   });
   return htmlString + '</p>';
 }
-
-// WIP solution:
-// let str = "Hello";
-// let substr = "el";
-// str.replace(substr, '<b>' + substr + '</b>');
-// https://stackoverflow.com/questions/29896907/bold-part-of-string
 
 $(document).ready(function () {
   $('form#word-counter').submit(function (event) {
